@@ -1,5 +1,12 @@
-import { Card, Button } from '@douyinfe/semi-ui'
+import { Button, Card, Space } from '@douyinfe/semi-ui'
 import { EditorContent, useEditor, Editor } from '@tiptap/react'
+import {
+  IconBold,
+  IconItalic,
+  IconH1,
+  IconOrderedList,
+  IconList,
+} from '@douyinfe/semi-icons'
 
 import StarterKit from '@tiptap/starter-kit'
 import styled from 'styled-components'
@@ -16,33 +23,53 @@ const MenuBar = ({ editor }: MenuBarProps) => {
   }
 
   return (
-    <>
-      <Button
-        theme="borderless"
-        type="primary"
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? 'is-active' : ''}
-      >
-        粗体
-      </Button>
-      <Button
-        theme="borderless"
-        type="primary"
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive('italic') ? 'is-active' : ''}
-      >
-        斜体
-      </Button>
+    <Space
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+      }}
+    >
+      <Space spacing={10} className="editor-menu-bar">
+        <span
+          onClick={() => editor.chain().focus().toggleBold().run()}
+          className={editor.isActive('bold') ? 'is-active' : ''}
+        >
+          <IconBold />
+        </span>
+        <span
+          onClick={() => editor.chain().focus().toggleItalic().run()}
+          className={editor.isActive('italic') ? 'is-active' : ''}
+        >
+          <IconItalic />
+        </span>
 
-      <Button
-        theme="borderless"
-        type="primary"
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
-      >
-        标题
+        <span
+          onClick={() =>
+            editor.chain().focus().toggleHeading({ level: 1 }).run()
+          }
+          className={
+            editor.isActive('heading', { level: 1 }) ? 'is-active' : ''
+          }
+        >
+          <IconH1 />
+        </span>
+        <span
+          onClick={() => editor.chain().focus().toggleOrderedList().run()}
+          className={editor.isActive('orderedList') ? 'is-active' : ''}
+        >
+          <IconOrderedList />
+        </span>
+        <span
+          onClick={() => editor.chain().focus().toggleBulletList().run()}
+          className={editor.isActive('bulletList') ? 'is-active' : ''}
+        >
+          <IconList />
+        </span>
+      </Space>
+      <Button theme="solid" type="primary">
+        发表
       </Button>
-    </>
+    </Space>
   )
 }
 

@@ -3,6 +3,7 @@
      background-color: #fefefe;
      padding: 4px;
      border: none;
+     outline: none;
 
      >*+* {
          margin-top: 0.75em;
@@ -20,7 +21,7 @@
      h4,
      h5,
      h6 {
-         margin: 0;
+         margin: 4px;
          padding: 0;
          line-height: 1.1;
 
@@ -60,5 +61,11 @@
          border: none;
          border-top: 2px solid rgba(#0D0D0D, 0.1);
          margin: 2rem 0;
+     }
+ }
+
+ .editor-menu-bar {
+     span {
+         cursor: pointer;
      }
  }

@@ -1,0 +1,46 @@
+.heat-grid {
+    margin-top: 10px;
+    padding: 0 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.week {
+    .day {
+        width: 10px;
+        height: 10px;
+        background: #efefef;
+        color: #d3ecdd;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        margin-bottom: 4px;
+        cursor: pointer;
+        box-sizing: content-box;
+    }
+
+    .today {
+        border-color: #55bb8e;
+    }
+
+    .light-green {
+        background: #d3ecdd;
+    }
+
+    .green {
+        background: #8ddeb5;
+    }
+
+    .dark-green {
+        background: #55bb8e;
+    }
+}
+
+.month-box {
+    margin-top: 2px;
+
+    .month {
+        color: #9d9d9d;
+        font-size: 12px;
+    }
+}
