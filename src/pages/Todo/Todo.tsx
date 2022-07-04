@@ -1,3 +1,9 @@
+import { Typography } from '@douyinfe/semi-ui'
+
 export default function Toto() {
-  return <div>todo</div>
+  return (
+    <>
+      <Typography.Title heading={4}>TODO</Typography.Title>
+    </>
+  )
 }
