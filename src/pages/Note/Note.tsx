@@ -35,6 +35,7 @@ export default function Note() {
     setCurrent(currentPage)
     setList(arr)
   }
+
   return (
     <>
       <Typography.Title heading={4}>NOTES</Typography.Title>
@@ -54,7 +55,7 @@ export default function Note() {
           justifyContent: 'flex-end',
         }}
       >
-        {data.length > 1 ? (
+        {data.length > 0 ? (
           <Pagination
             showTotal
             onChange={handlePagination}

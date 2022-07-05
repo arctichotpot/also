@@ -10,9 +10,9 @@ export default {
     },
     // add new note 
     add: async (content: string) => {
+        const id = nanoid()
 
         try {
-            const id = nanoid()
             db.notes.put({
                 id,
                 body: content,

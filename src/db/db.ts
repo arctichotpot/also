@@ -19,7 +19,7 @@ class MySubClassedDexie extends Dexie {
     constructor() {
         super('noteDB');
         this.version(3).stores({
-            notes: '&id, body, created_at, updated_at',
+            notes: 'id, body, created_at, updated_at',
         });
     }
 }

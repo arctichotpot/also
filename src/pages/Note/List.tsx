@@ -20,7 +20,7 @@ interface Props {
 export default function List({ content, onUpdate, item, onDelete }: Props) {
   const [isEdit, setIsEdit] = useState<boolean>(false)
 
-  const formatDate = (date: string) => dayjs(date).format('YYYY-MM-DD HH:MM')
+  const formatDate = (date: string) => dayjs(date).format('YYYY-MM-DD HH:mm')
   const handleDelete = () => {
     return Modal.error({
       title: 'Delete',
@@ -40,6 +40,7 @@ export default function List({ content, onUpdate, item, onDelete }: Props) {
   const handleSubmit = (value: string) => {
     const params = { ...item }
     params.body = value
+    params.updated_at = dayjs().toString()
     onUpdate(params)
     setIsEdit(false)
   }
@@ -88,12 +89,21 @@ export default function List({ content, onUpdate, item, onDelete }: Props) {
       {isEdit ? (
         <Editor value={content} onSubmit={handleSubmit} />
       ) : (
-        <Card style={{ margin: '10px 0' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Card style={{ margin: '10px 0' }} bodyStyle={{ padding: 14 }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginBottom: 10,
+            }}
+          >
             <span> {formatDate(item.created_at)}</span>
             <MoreSetting />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: content }}></div>
+          <div
+            dangerouslySetInnerHTML={{ __html: content }}
+            className="markdown-body"
+          ></div>
         </Card>
       )}
     </>
