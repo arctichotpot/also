@@ -1,4 +1,4 @@
-import { db, MemoProps } from "../db";
+import { db, TodoChildrenProps, TodoProps } from "../db";
 import { nanoid } from "nanoid"
 import dayjs from "dayjs";
 import { Toast } from "@douyinfe/semi-ui";
@@ -6,29 +6,33 @@ import { Toast } from "@douyinfe/semi-ui";
 export default {
     // get all note list
     list: () => {
-        return db.memo.orderBy('created_at').reverse().toArray()
+        console.log(db.todo.toArray())
+        return db.todo.orderBy('created_at').toArray()
     },
+
     // add new note 
-    add: async (content: string) => {
+    add: async (title: string) => {
         const id = nanoid()
 
         try {
-            await db.memo.add({
+            await db.todo.add({
                 id,
-                body: content,
+                title: title,
                 created_at: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+                children: []
             })
             Toast.success('Add success!')
 
         } catch (e) {
+            console.log(e)
             Toast.error('Add error!')
         }
     },
     // update note 
-    update: async (id: string, params: MemoProps) => {
+    update: async (id: string, params: TodoProps) => {
         try {
-            await db.memo.update(id, params)
-            Toast.success('Update success!')
+            await db.todo.update(id, params)
+            // Toast.success('Update success!')
         } catch (e) {
             Toast.success('Update error!')
         }
@@ -37,7 +41,7 @@ export default {
     // delete note
     delete: async (id: string) => {
         try {
-            await db.memo.delete(id)
+            await db.todo.delete(id)
             Toast.success('Delete success!')
         } catch (e) {
             Toast.success('Delete error!')

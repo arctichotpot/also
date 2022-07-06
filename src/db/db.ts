@@ -6,21 +6,30 @@ export interface MemoProps {
     id: string
     body: string
     created_at: string
-    updated_at: string
-    text?: string
-    // tags: {
-    //     key: string;
-    //     value: string;
-    // }[];
+}
+
+export interface TodoProps {
+    id: string
+    title: string
+    created_at: string
+    children: TodoChildrenProps[]
+}
+
+export interface TodoChildrenProps {
+    id: string
+    content: string,
+    pid: string
 }
 
 class MySubClassedDexie extends Dexie {
     memo!: Dexie.Table<MemoProps, string>;
+    todo!: Dexie.Table<TodoProps, string>;
 
     constructor() {
         super('memoDB');
         this.version(3).stores({
-            memo: 'id, body, created_at, updated_at,text',
+            memo: 'id, content, created_at',
+            todo: 'id,title,children,created_at'
         });
     }
 }

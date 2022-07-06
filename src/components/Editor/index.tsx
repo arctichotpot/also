@@ -102,7 +102,6 @@ export default function EditorComponents(props: EditorProps) {
       onSubmit(content)
       setContent('')
       editor?.commands.setContent('')
-      console.log(editor)
     } else Toast.error('Content cannot be empty!')
   }
 

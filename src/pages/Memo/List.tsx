@@ -40,7 +40,6 @@ export default function List({ content, onUpdate, item, onDelete }: Props) {
   const handleSubmit = (value: string) => {
     const params = { ...item }
     params.body = value
-    params.updated_at = dayjs().format('YYYY-MM-DD HH:mm:ss')
     onUpdate(params)
     setIsEdit(false)
   }
