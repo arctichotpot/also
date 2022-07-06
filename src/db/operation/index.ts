@@ -1,1 +1,1 @@
-export { default as NoteOperation } from "./note"
+export { default as MemoOperation } from "./memo"

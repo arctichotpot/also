@@ -3,17 +3,17 @@ import Editor from '../../components/Editor'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../../db/db'
 import List from './List'
-import { NoteOperation } from '../../db/operation'
-import { NotesProps } from '../../db/db'
+import { MemoOperation } from '../../db/operation'
+import { MemoProps } from '../../db/db'
 import { useEffect, useState } from 'react'
 
-export default function Note() {
+export default function Memo() {
   const pageSize = 5
   const [current, setCurrent] = useState<number>(1)
 
-  let data = useLiveQuery(() => NoteOperation.list(), []) || []
+  let data = useLiveQuery(() => MemoOperation.list(), []) || []
 
-  const [list, setList] = useState<NotesProps[]>([])
+  const [list, setList] = useState<MemoProps[]>([])
 
   useEffect(() => {
     if (data.length > 0) {
@@ -29,25 +29,24 @@ export default function Note() {
   }, [list])
 
   const handleSubmit = (value: string) => {
-    NoteOperation.add(value)
+    MemoOperation.add(value)
   }
-  const handleUpdate = (value: NotesProps) => {
-    NoteOperation.update(value.id, value)
+  const handleUpdate = (value: MemoProps) => {
+    MemoOperation.update(value.id, value)
   }
   const handleDelete = (id: string) => {
-    NoteOperation.delete(id)
+    MemoOperation.delete(id)
   }
 
   const handlePagination = (currentPage: number) => {
     let arr = data.slice((currentPage - 1) * pageSize, currentPage * pageSize)
-    console.log(arr)
     setCurrent(currentPage)
     setList(arr)
   }
 
   return (
     <>
-      <Typography.Title heading={4}>NOTES</Typography.Title>
+      <Typography.Title heading={4}>MEMO</Typography.Title>
       <Editor onSubmit={handleSubmit} value="" />
       {list.map((item) => (
         <List

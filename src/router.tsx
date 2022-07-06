@@ -1,7 +1,7 @@
 import { useRoutes } from 'react-router-dom'
 
 import LayoutPage from './pages/Dashboard/Layout'
-import NotePage from './pages/Note/Note'
+import MemoPage from './pages/Memo/Memo'
 import SettingPage from './pages/Setting/Setting'
 import TotoPage from './pages/Todo/Todo'
 import { IconKanban, IconGallery, IconSetting } from '@douyinfe/semi-icons'
@@ -32,10 +32,10 @@ export const routes: Routes[] = [
     element: <LayoutPage />,
     children: [
       {
-        path: '/note',
-        element: <NotePage />,
+        path: '/memo',
+        element: <MemoPage />,
         meta: {
-          title: 'Note',
+          title: 'Memo',
           icon: <IconGallery />,
         },
       },

@@ -7,20 +7,20 @@ import {
 } from '@douyinfe/semi-icons'
 import Editor from '../../components/Editor'
 import { useState } from 'react'
-import { NotesProps } from '../../db/db'
+import { MemoProps } from '../../db/db'
 import dayjs from 'dayjs'
 
 interface Props {
-  item: NotesProps
+  item: MemoProps
   content: string
-  onUpdate: (params: NotesProps) => void
+  onUpdate: (params: MemoProps) => void
   onDelete: (id: string) => void
 }
 
 export default function List({ content, onUpdate, item, onDelete }: Props) {
   const [isEdit, setIsEdit] = useState<boolean>(false)
 
-  const formatDate = (date: string) => dayjs(date).format('YYYY-MM-DD HH:mm')
+  const formatDate = (date: string) => dayjs(date).format('YYYY-MM-DD HH:mm:ss')
   const handleDelete = () => {
     return Modal.error({
       title: 'Delete',

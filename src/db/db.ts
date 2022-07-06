@@ -2,7 +2,7 @@ import Dexie from 'dexie';
 import { importInto, exportDB } from 'dexie-export-import';
 import { saveAs } from 'file-saver';
 
-export interface NotesProps {
+export interface MemoProps {
     id: string
     body: string
     created_at: string
@@ -15,12 +15,12 @@ export interface NotesProps {
 }
 
 class MySubClassedDexie extends Dexie {
-    notes!: Dexie.Table<NotesProps, string>;
+    memo!: Dexie.Table<MemoProps, string>;
 
     constructor() {
-        super('noteDB');
+        super('memoDB');
         this.version(3).stores({
-            notes: 'id, body, created_at, updated_at,text',
+            memo: 'id, body, created_at, updated_at,text',
         });
     }
 }

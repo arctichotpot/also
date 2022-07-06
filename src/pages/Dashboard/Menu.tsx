@@ -10,7 +10,7 @@ interface Item {
 }
 
 export default function Menu() {
-  const [selectKeys, setSelectKeys] = useState<string[]>(['note'])
+  const [selectKeys, setSelectKeys] = useState<string[]>(['memo'])
   const navigate = useNavigate()
   const location = useLocation()
 
