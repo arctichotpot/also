@@ -3,10 +3,11 @@ import { importInto, exportDB } from 'dexie-export-import';
 import { saveAs } from 'file-saver';
 
 export interface NotesProps {
-    id: string;
-    body: string;
-    created_at: string;
-    updated_at: string;
+    id: string
+    body: string
+    created_at: string
+    updated_at: string
+    text?: string
     // tags: {
     //     key: string;
     //     value: string;
@@ -19,7 +20,7 @@ class MySubClassedDexie extends Dexie {
     constructor() {
         super('noteDB');
         this.version(3).stores({
-            notes: 'id, body, created_at, updated_at',
+            notes: 'id, body, created_at, updated_at,text',
         });
     }
 }

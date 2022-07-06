@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import classNames from 'classnames'
 import { Tooltip } from '@douyinfe/semi-ui'
 
-import Styles from './HeatGridChart.module.scss'
+import Styles from '../../styles/HeatGridChart.module.scss'
 
 interface HeatGridStatProps {
   data?: Record<string, any>

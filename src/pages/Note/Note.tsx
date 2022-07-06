@@ -11,14 +11,22 @@ export default function Note() {
   const pageSize = 5
   const [current, setCurrent] = useState<number>(1)
 
-  let data = useLiveQuery(() => db.notes.toArray(), []) || []
+  let data = useLiveQuery(() => NoteOperation.list(), []) || []
 
   const [list, setList] = useState<NotesProps[]>([])
 
   useEffect(() => {
-    const arr = data.slice((current - 1) * pageSize, current * pageSize)
-    setList(arr)
+    if (data.length > 0) {
+      const arr = data.slice((current - 1) * pageSize, current * pageSize)
+      setList(arr)
+    }
   }, [data])
+
+  useEffect(() => {
+    if (data.length > 0 && list.length === 0) {
+      if (current > 1) handlePagination(current - 1)
+    }
+  }, [list])
 
   const handleSubmit = (value: string) => {
     NoteOperation.add(value)
@@ -31,7 +39,8 @@ export default function Note() {
   }
 
   const handlePagination = (currentPage: number) => {
-    const arr = data.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    let arr = data.slice((currentPage - 1) * pageSize, currentPage * pageSize)
+    console.log(arr)
     setCurrent(currentPage)
     setList(arr)
   }
@@ -55,14 +64,14 @@ export default function Note() {
           justifyContent: 'flex-end',
         }}
       >
-        {data.length > 0 ? (
-          <Pagination
-            showTotal
-            onChange={handlePagination}
-            total={data.length}
-            pageSize={pageSize}
-          ></Pagination>
-        ) : null}
+        <Pagination
+          currentPage={current}
+          showTotal
+          hideOnSinglePage
+          onChange={handlePagination}
+          total={data.length}
+          pageSize={pageSize}
+        />
       </div>
     </>
   )

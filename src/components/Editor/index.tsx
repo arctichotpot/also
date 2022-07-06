@@ -103,15 +103,11 @@ export default function EditorComponents(props: EditorProps) {
       setContent('')
       editor?.commands.setContent('')
       console.log(editor)
-    } else Toast.error('Content cannot be empty')
+    } else Toast.error('Content cannot be empty!')
   }
 
   return (
-    <EditorCard
-      bodyStyle={{
-        padding: 10,
-      }}
-    >
+    <EditorCard bodyStyle={{ padding: 10 }}>
       <EditorContent editor={editor} />
       <MenuBar editor={editor as Editor} onSubmit={handleSubmit} />
     </EditorCard>
