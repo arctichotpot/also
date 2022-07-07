@@ -84,6 +84,8 @@ export default function DragComponent({ data }: Props) {
   return (
     <DragDropContextContainer>
       <DragDropContext onDragEnd={onDragEnd}>
+        <AddDragComponent onAdd={onAddDrag} />
+
         <div
           style={{
             columnCount: 3,
@@ -98,7 +100,6 @@ export default function DragComponent({ data }: Props) {
               callback={draggableElementCallback}
             />
           ))}
-          <AddDragComponent onAdd={onAddDrag} />
         </div>
       </DragDropContext>
     </DragDropContextContainer>
