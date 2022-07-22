@@ -9,6 +9,7 @@ import Editor from '../../components/Editor'
 import { useState } from 'react'
 import { MemoProps } from '../../db/db'
 import dayjs from 'dayjs'
+import { Translate } from '../../local/i18n'
 
 interface Props {
   item: MemoProps
@@ -23,10 +24,10 @@ export default function List({ content, onUpdate, item, onDelete }: Props) {
   const formatDate = (date: string) => dayjs(date).format('YYYY-MM-DD HH:mm:ss')
   const handleDelete = () => {
     return Modal.error({
-      title: 'Delete',
-      content: 'Are you sure you want to delete it?',
-      okText: 'Confirm',
-      cancelText: 'Cancel',
+      title: Translate('Delete'),
+      content: Translate('Are you sure you want to delete it'),
+      okText: Translate('Confirm'),
+      cancelText: Translate('Cancel'),
       onOk: () => {
         onDelete(item.id)
       },
@@ -60,19 +61,19 @@ export default function List({ content, onUpdate, item, onDelete }: Props) {
                 icon={<IconDelete style={{ color: '#ff1744' }} />}
                 onClick={handleDelete}
               >
-                Delete
+                {Translate('Delete')}
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={handleEdit}
                 icon={<IconSetting style={{ color: '#00b0ff' }} />}
               >
-                Edit
+                {Translate('Edit')}
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={handleCopy}
                 icon={<IconForward style={{ color: '#ff3d00' }} />}
               >
-                Copy
+                {Translate('Copy')}
               </Dropdown.Item>
             </Dropdown.Menu>
           }

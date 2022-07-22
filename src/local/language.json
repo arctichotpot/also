@@ -1,8 +1,38 @@
 {
-    "zh": {
-        "Welcome to React": "欢迎"
-    },
     "en": {
-        "Welcome to React": "Welcome to React"
+        "Memo": "Memo",
+        "Setting": "Setting",
+        "ToDo": "ToDo",
+        "Delete": "Delete",
+        "Edit": "Edit",
+        "Copy": "Copy",
+        "Confirm": "Confirm",
+        "Cancel": "Cancel",
+        "Add List": "Add List",
+        "Add Card": "Add Card",
+        "Submit": "Submit",
+        "PomodoroTechnique": "PomodoroTechnique",
+        "Content cannot be empty": "Content cannot be empty!",
+        "Please enter a title": "Please enter a title!",
+        "Please enter the name of the card": "Please enter the name of the card!",
+        "Are you sure you want to delete it": "Are you sure you want to delete it!"
+    },
+    "zh": {
+        "ToDo": "看板",
+        "Setting": "设置",
+        "Memo": "备忘   ",
+        "Delete": "删除",
+        "Edit": "编辑",
+        "Copy": "复制",
+        "Confirm": "确认",
+        "Cancel": "取消",
+        "Add List": "添加列表",
+        "Add Card": "添加卡片",
+        "Submit": "保存",
+        "PomodoroTechnique": "番茄钟",
+        "Content cannot be empty": "内容不能为空!",
+        "Please enter a title": "请输入标题!",
+        "Please enter the name of the card": "请给卡片输入标题!",
+        "Are you sure you want to delete it": "确认删除?"
     }
 }

@@ -1,4 +1,5 @@
 import { useRoutes } from 'react-router-dom'
+import { Translate } from './local/i18n'
 
 import LayoutPage from './pages/Dashboard/Layout'
 import MemoPage from './pages/Memo/Memo'
@@ -34,7 +35,7 @@ export const routes: Routes[] = [
         path: '/memo',
         element: <MemoPage />,
         meta: {
-          title: 'Memo',
+          title: Translate('Memo'),
           icon: <IconGallery />,
         },
       },
@@ -42,7 +43,7 @@ export const routes: Routes[] = [
         path: '/pomodoroTechnique',
         element: <PomodoroTechniquePage />,
         meta: {
-          title: 'PomodoroTechnique',
+          title: Translate('PomodoroTechnique'),
           icon: <IconSetting />,
         },
       },
@@ -50,7 +51,7 @@ export const routes: Routes[] = [
         path: '/todo',
         element: <TotoPage />,
         meta: {
-          title: 'ToDo',
+          title: Translate('ToDo'),
           icon: <IconKanban />,
         },
       },
@@ -58,7 +59,7 @@ export const routes: Routes[] = [
         path: '/setting',
         element: <SettingPage />,
         meta: {
-          title: 'Setting',
+          title: Translate('Setting'),
           icon: <IconSetting />,
         },
       },

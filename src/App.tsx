@@ -6,8 +6,10 @@ import en_GB from '@douyinfe/semi-ui/lib/es/locale/source/en_GB'
 import zh_CN from '@douyinfe/semi-ui/lib/es/locale/source/zh_CN'
 import { useRecoilValue } from 'recoil'
 import { appState } from './store/app'
+import { withTranslation } from 'react-i18next'
+import { TranProps } from './types/translation'
 
-export default function App() {
+function App() {
   const state = useRecoilValue(appState)
   return (
     <>
@@ -18,3 +20,5 @@ export default function App() {
     </>
   )
 }
+
+export default withTranslation()(App)

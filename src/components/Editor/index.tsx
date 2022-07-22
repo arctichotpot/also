@@ -10,7 +10,6 @@ import {
 
 import StarterKit from '@tiptap/starter-kit'
 import styled from 'styled-components'
-
 import './styles.scss'
 import { useState } from 'react'
 
