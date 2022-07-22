@@ -41,6 +41,7 @@ export default function Menu() {
 
   return (
     <Nav
+      style={{ border: 'none' }}
       selectedKeys={selectKeys}
       onClick={(item) => handleClick(item as Item)}
       items={menuItems}

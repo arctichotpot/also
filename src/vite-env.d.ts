@@ -3,4 +3,4 @@
 
 declare module "dexie-export-import"
 declare module "react-beautiful-dnd"
-declare module 'lodash
+declare module 'lodash'

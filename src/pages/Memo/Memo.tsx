@@ -1,4 +1,4 @@
-import { Typography, Pagination, Toast } from '@douyinfe/semi-ui'
+import { Typography, Pagination, Toast, Space } from '@douyinfe/semi-ui'
 import Editor from '../../components/Editor'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../../db/db'
@@ -57,6 +57,7 @@ export default function Memo() {
           onDelete={handleDelete}
         />
       ))}
+
       <div
         style={{
           display: 'flex',

@@ -3,12 +3,13 @@ import { Outlet } from 'react-router'
 import { Space } from '@douyinfe/semi-ui'
 import { Typography } from '@douyinfe/semi-ui'
 import Menu from './Menu'
+import ToolsButtonGroup from './ToolsButtonGroup'
 import Statistics from './Statistics'
 
 const LayoutStyle = styled(Space)`
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding: 20px;
 `
 
 const AsideStyle = styled.div`
@@ -18,7 +19,7 @@ const AsideStyle = styled.div`
 `
 
 const ViewStyle = styled.div`
-  width: 700px;
+  width: 900px;
   height: auto;
   display: inline-block;
 `
@@ -27,13 +28,13 @@ export default function Layout() {
   return (
     <LayoutStyle align="start" spacing={30}>
       <AsideStyle>
+        <ToolsButtonGroup />
         <Typography.Title
           heading={4}
           style={{ color: '#5f5f5f', marginBottom: 20 }}
         >
           WorkSpace
         </Typography.Title>
-        <Statistics />
         <Menu />
       </AsideStyle>
       <ViewStyle>

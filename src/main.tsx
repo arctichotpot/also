@@ -5,6 +5,8 @@ import App from './App'
 import { RecoilRoot } from 'recoil'
 import { LocaleProvider } from '@douyinfe/semi-ui'
 import en_GB from '@douyinfe/semi-ui/lib/es/locale/source/en_GB'
+import zh_CN from '@douyinfe/semi-ui/lib/es/locale/source/zh_CN'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 

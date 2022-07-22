@@ -85,13 +85,7 @@ export default function DragComponent({ data }: Props) {
     <DragDropContextContainer>
       <DragDropContext onDragEnd={onDragEnd}>
         <AddDragComponent onAdd={onAddDrag} />
-
-        <div
-          style={{
-            columnCount: 3,
-            columnGap: 10,
-          }}
-        >
+        <Space align="start" wrap>
           {list.map((item) => (
             <DraggableElement
               elements={item}
@@ -100,7 +94,7 @@ export default function DragComponent({ data }: Props) {
               callback={draggableElementCallback}
             />
           ))}
-        </div>
+        </Space>
       </DragDropContext>
     </DragDropContextContainer>
   )
